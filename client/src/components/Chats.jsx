@@ -31,7 +31,7 @@ const Chats = () => {
                 <Avatar size='sm' name='Dan Abrahmov' src={chat.sender.image} />
                 <Box p='3' bg='white' w='75%' borderRadius={12} borderTopLeftRadius={0}>
                   {chat.message}
-                  <Text fontSize='xs' fontWeight='bold' textAlign='right'>{chat.time.substring(11,16)}</Text>
+                  <Text fontSize='xs' fontWeight='bold' textAlign='right' color='grey'>{chat.time.substring(11,16)}</Text>
                 </Box>
               </Flex>
             ))}
@@ -49,8 +49,8 @@ const Chats = () => {
                 borderBottomRightRadius={isCurrentUser ? 0 : 12}
                 bg={chat.sender === localStorage.getItem('chatSender') ? 'blue.500' : 'white'} >
                   <Text color={chat.sender === localStorage.getItem('chatSender') ? 'white' : 'black'}>{chat.message}</Text>
-                  <Text color={chat.sender === localStorage.getItem('chatSender') ? 'white' : 'black'}>
-                    {new Date(chatsDb.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                  <Text color={chat.sender === localStorage.getItem('chatSender') ? 'white' : 'grey'} fontSize='xs' fontWeight='bold' textAlign='right'>
+                    {new Date(chat.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                   </Text>
                 </Box>
               </Flex>
