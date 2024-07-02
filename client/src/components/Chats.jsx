@@ -11,7 +11,7 @@ const Chats = () => {
     const chatEndRef = useRef(null);
 
     const fetchChats = async () =>  {
-        const { data } = await axios.get("/api/chats");
+        const { data } = await axios.get("https://chatapp-jzkd.onrender.com/api/chats");
         setChats(data);
     }
 
@@ -49,7 +49,9 @@ const Chats = () => {
                 borderBottomRightRadius={isCurrentUser ? 0 : 12}
                 bg={chat.sender === localStorage.getItem('chatSender') ? 'blue.500' : 'white'} >
                   <Text color={chat.sender === localStorage.getItem('chatSender') ? 'white' : 'black'}>{chat.message}</Text>
-                  {/* <Text fontSize='xs' fontWeight='bold' textAlign='right'>{chat.time.substring(11,16)}</Text> */}
+                  <Text color='white' fontSize='xs' fontWeight='bold' textAlign='right'>
+                    {new Date(chat.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                  </Text>
                 </Box>
               </Flex>
             )})}

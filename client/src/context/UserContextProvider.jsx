@@ -21,7 +21,7 @@ const UserContextProvider = ({children}) => {
 
         const fetchChats = async () => {
             try {
-              const response = await Axios.get('/api/chats/db');
+              const response = await Axios.get('https://chatapp-jzkd.onrender.com/api/chats/db');
               setChatsDb(response.data);
             } catch (error) {
               console.error('Error fetching chats:', error.response ? error.response.data : error.message);
@@ -36,7 +36,7 @@ const UserContextProvider = ({children}) => {
     
         const newChat = { message, sender };
     
-        const response = await Axios.post('/api/chats/db', newChat);
+        const response = await Axios.post('https://chatapp-jzkd.onrender.com/api/chats/db', newChat);
         setChatsDb([response.data, ...chatsDb]);
         setMessage('');
       };
