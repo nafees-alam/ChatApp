@@ -50,7 +50,7 @@ const Chats = () => {
                 bg={chat.sender === localStorage.getItem('chatSender') ? 'blue.500' : 'white'} >
                   <Text color={chat.sender === localStorage.getItem('chatSender') ? 'white' : 'black'}>{chat.message}</Text>
                   <Text color='white' fontSize='xs' fontWeight='bold' textAlign='right'>
-                    {new Date(chat.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                    {new Date(chatsDb.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                   </Text>
                 </Box>
               </Flex>
